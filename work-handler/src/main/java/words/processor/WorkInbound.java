@@ -22,7 +22,7 @@ public class WorkInbound {
     @Bean
     public IntegrationFlow inboundFlow() {
         return IntegrationFlows.from(
-                Amqp.inboundAdapter(connectionFactory, rabbitConfig.worksQueue()))
+                Amqp.inboundAdapter(connectionFactory, rabbitConfig.worksQueue()).concurrentConsumers(3))
                 .transform(Transformers.fromJson(WorkUnit.class))
                 .handle("workHandler", "process")
                 .get();

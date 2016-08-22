@@ -17,8 +17,9 @@ public class SampleWorkController {
 
     @RequestMapping("/generateWork")
     @ResponseBody
-    public String generateWork(@RequestParam("definition") String definition) {
-        workUnitGateway.generate(new WorkUnit(UUID.randomUUID().toString(), definition));
-        return "generated";
+    public WorkUnit generateWork(@RequestParam("definition") String definition) {
+        WorkUnit sampleWorkUnit = new WorkUnit(UUID.randomUUID().toString(), definition);
+        workUnitGateway.generate(sampleWorkUnit);
+        return sampleWorkUnit;
     }
 }

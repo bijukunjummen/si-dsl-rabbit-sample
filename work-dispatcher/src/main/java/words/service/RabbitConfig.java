@@ -19,7 +19,7 @@ public class RabbitConfig {
 	}
 
 	@Bean
-	public RabbitTemplate rabbitTemplate() {
+	public RabbitTemplate worksRabbitTemplate() {
 		RabbitTemplate r = new RabbitTemplate(rabbitConnectionFactory);
 		r.setExchange("work.exchange");
 		r.setRoutingKey("work");
