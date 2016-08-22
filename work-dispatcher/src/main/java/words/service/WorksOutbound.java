@@ -9,7 +9,7 @@ import org.springframework.integration.dsl.amqp.Amqp;
 import org.springframework.integration.dsl.support.Transformers;
 
 @Configuration
-public class WordsOutbound {
+public class WorksOutbound {
 
     @Bean
     public IntegrationFlow toOutboundQueueFlow(RabbitTemplate rabbitTemplate) {
