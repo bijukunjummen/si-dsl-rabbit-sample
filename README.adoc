@@ -1,1 +1,35 @@
 Spring Integration with Java DSL support to send and process "Work Units" with a RabbitMQ broker mediating the transfer
+
+== Steps
+
+* Start RabbitMQ server:
+
+[source]
+----
+rabbitmq-server
+----
+
+
+* Start the Work Handler:
+
+[source]
+----
+cd work-handler
+mvn spring-boot:run
+----
+
+* Start the Work Dispatcher:
+
+[source]
+----
+cd work-dispatcher
+mvn spring-boot:run
+----
+
+
+* Create dummy work units by calling a controller endpoint:
+
+[source]
+----
+http://localhost:8080/generateWork?definition=test
+----
