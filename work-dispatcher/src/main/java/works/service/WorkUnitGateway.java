@@ -1,8 +1,8 @@
-package words.service;
+package works.service;
 
 import org.springframework.integration.annotation.Gateway;
 import org.springframework.integration.annotation.MessagingGateway;
-import words.service.domain.WorkUnit;
+import works.service.domain.WorkUnit;
 
 @MessagingGateway
 public interface WorkUnitGateway {

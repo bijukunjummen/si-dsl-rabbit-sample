@@ -1,6 +1,7 @@
-package words.service;
+package works.service;
 
 import org.springframework.amqp.core.DirectExchange;
+import org.springframework.amqp.core.TopicExchange;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +15,8 @@ public class RabbitConfig {
 	private ConnectionFactory rabbitConnectionFactory;
 
 	@Bean
-	DirectExchange worksExchange() {
-		return new DirectExchange("work.exchange", true, false);
+	TopicExchange worksExchange() {
+		return new TopicExchange("work.exchange", true, false);
 	}
 
 	@Bean
