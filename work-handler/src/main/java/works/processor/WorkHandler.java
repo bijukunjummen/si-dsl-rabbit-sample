@@ -1,9 +1,9 @@
-package words.processor;
+package works.processor;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-import words.processor.domain.WorkUnit;
+import works.processor.domain.WorkUnit;
 
 @Service
 public class WorkHandler {

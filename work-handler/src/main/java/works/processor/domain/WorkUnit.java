@@ -1,4 +1,4 @@
-package words.processor.domain;
+package works.processor.domain;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;

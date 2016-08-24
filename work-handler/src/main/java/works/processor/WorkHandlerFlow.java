@@ -1,4 +1,4 @@
-package words.processor;
+package works.processor;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

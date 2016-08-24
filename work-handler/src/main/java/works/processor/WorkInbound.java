@@ -1,4 +1,4 @@
-package words.processor;
+package works.processor;
 
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +8,7 @@ import org.springframework.integration.dsl.IntegrationFlow;
 import org.springframework.integration.dsl.IntegrationFlows;
 import org.springframework.integration.dsl.amqp.Amqp;
 import org.springframework.integration.dsl.support.Transformers;
-import words.processor.domain.WorkUnit;
+import works.processor.domain.WorkUnit;
 
 @Configuration
 public class WorkInbound {
