@@ -18,6 +18,27 @@ public class RabbitConfig {
     @Autowired
     private ConnectionFactory rabbitConnectionFactory;
 
+    @Bean
+    Exchange worksExchange() {
+        return ExchangeBuilder.topicExchange("work.exchange")
+                .durable()
+                .build();
+    }
+
+
+    @Bean
+    public Queue worksQueue() {
+        return QueueBuilder.durable("work.queue")
+                .withArgument("x-dead-letter-exchange", worksDlExchange().getName())
+                .build();
+    }
+
+    @Bean
+    Binding worksBinding() {
+        return BindingBuilder
+                .bind(worksQueue())
+                .to(worksExchange()).with("#").noargs();
+    }
 
     // Dead letter exchange for holding rejected work units..
     @Bean
@@ -46,27 +67,7 @@ public class RabbitConfig {
                 .noargs();
     }
 
-    @Bean
-    Exchange worksExchange() {
-        return ExchangeBuilder.topicExchange("work.exchange")
-                .durable()
-                .build();
-    }
 
-
-    @Bean
-    public Queue worksQueue() {
-        return QueueBuilder.durable("work.queue")
-                .withArgument("x-dead-letter-exchange", worksDlExchange().getName())
-                .build();
-    }
-
-    @Bean
-    Binding worksBinding() {
-        return BindingBuilder
-                .bind(worksQueue())
-                .to(worksExchange()).with("#").noargs();
-    }
 
     @Bean
     public SimpleMessageListenerContainer workListenerContainer() {
