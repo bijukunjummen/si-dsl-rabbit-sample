@@ -21,4 +21,5 @@ public class WorksOutbound {
                 .handle(Amqp.outboundAdapter(rabbitConfig.worksRabbitTemplate()))
                 .get();
     }
+
 }

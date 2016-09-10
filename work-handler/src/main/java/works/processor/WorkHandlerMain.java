@@ -6,10 +6,10 @@ import org.springframework.integration.annotation.IntegrationComponentScan;
 
 @SpringBootApplication
 @IntegrationComponentScan
-public class WorkHandlerFlow {
+public class WorkHandlerMain {
 
     public static void main(String[] args) {
-        SpringApplication.run(WorkHandlerFlow.class, args);
+        SpringApplication.run(WorkHandlerMain.class, args);
     }
 
 }

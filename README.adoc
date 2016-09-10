@@ -31,5 +31,12 @@ mvn spring-boot:run
 
 [source]
 ----
-http://localhost:8080/generateWork?definition=test
+http://localhost:8080/generateWork?id=1&definition=test&throw_exception=false
 ----
+
+* A throw exception flag will cause the "Work Unit" processor to throw an error. If that happens a complex flow is kicked off -
+
+- There is a Dead Letter exchange configured for the Work unit queue, the message from the dead letter exchange is routed to
+the Dead letter queue, dead letter queue has a ttl of 20 seconds and in-turn has the dead letter exchange configured to be the work units queue thus creating a nice cycle.
+The cycle of consuming messages is broken by adding in a filter in the processing flow to break processing after a set number of retries - 3 in this case.
+
